@@ -31,7 +31,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="contact in contacts" :key="contact">
+        <tr v-for="(contact, index) in contacts" :key="index">
           <td>{{ contact.name }}</td>
           <td>{{ contact.email }}</td>
           <td>{{ contact.phone }}</td>

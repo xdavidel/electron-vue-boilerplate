@@ -6,7 +6,7 @@
       </button>
       <br />
       <audio controls id="player">
-        <source v-for="file in files" :src="file" :key="file" type="audio/mpeg">
+        <source v-for="(file, index) in files" :src="file" :key="index" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
   </div>
