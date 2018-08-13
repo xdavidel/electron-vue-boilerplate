@@ -6,24 +6,24 @@
 </template>
 
 <script>
-  import Clock from './components/Clock.vue'
+import Clock from "./components/Clock.vue";
 
-  export default {
-    data () {
-      return {
-        msg: 'Welcome to Electron & Vue.js World!'
-      }
-    },
-    components: {
-      Clock
-    }
+export default {
+  data() {
+    return {
+      msg: "Welcome to Electron & Vue.js World!"
+    };
+  },
+  components: {
+    Clock
   }
+};
 </script>
 
 <style>
-  .container {
-    text-align: center;
-    margin: 0 auto;
-    padding-top: 70px;
-  }
+.container {
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 70px;
+}
 </style>
