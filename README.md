@@ -4,7 +4,7 @@
 ### Usage
 
 ```bash
-$ git clone https://github.com/sohelamin/electron-vue-boilerplate.git
+$ git clone https://github.com/xdavidel/electron-vue-boilerplate.git
 $ cd electron-vue-boilerplate
 $ npm install
 $ npm run dev-server
