@@ -1,11 +1,15 @@
 <template>
   <li>
-    <div :class="{bold: isFolder}" @click="toggle" @dblclick="changeType">
+    <div v-show="!edit" :class="{bold: isFolder}" @click="toggle" @dblclick="editMode" @click.right="changeType">
       {{ model.name }}
       <span v-if="isFolder">[{{ open ? '-' : '+' }}]</span>
     </div>
+    <form @submit.prevent="endEdit">
+
+    <input type="text" v-show="edit" v-model="model.name" @blur="endEdit">
+    </form>
     <ul v-show="open" v-if="isFolder">
-      <node class="node" v-for="(child, index) in model.children" :key="index" :model="child">
+      <node class="node" v-for="(child, index) in model.children" :key="index" :parent="model" :index="index" :model="child" >
       </node>
 
       <li class="add" @click="addChild">+</li>
@@ -18,11 +22,14 @@ import Vue from "vue";
 
 export default {
   props: {
-    model: Object
+    model: Object,
+    parent: Object,
+    index: Number
   },
   data: function() {
     return {
-      open: false
+      open: false,
+      edit: false
     };
   },
   beforeCreate: function() {
@@ -50,6 +57,24 @@ export default {
       this.model.children.push({
         name: "new stuff"
       });
+    },
+    deleteNode: function() {
+      if (this.isFolder) {
+        this.model.children.splice(0, this.model.children.length);
+      }
+      if (this.parent) {
+        this.parent.children.splice(this.index, 1);
+      }
+    },
+    editMode: function() {
+      this.edit = true;
+    },
+    endEdit: function() {
+      this.edit = false;
+
+      if (this.model.name.length <= 0) {
+        this.deleteNode();
+      }
     }
   }
 };
