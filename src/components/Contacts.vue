@@ -47,7 +47,10 @@ export default {
   data() {
     return {
       action: "list",
-      contacts: [],
+      contacts:
+        typeof Storage != undefined && localStorage.contacts
+          ? JSON.parse(localStorage.getItem("contacts"))
+          : [],
       currentContactId: null,
       name: "",
       email: "",
@@ -69,6 +72,11 @@ export default {
       };
       this.contacts.push(newContact);
 
+      // update locale storage
+      if (Storage != undefined) {
+        localStorage.contacts = JSON.stringify(this.contacts);
+      }
+
       this.action = "list";
     },
     editContact(contact) {
@@ -82,11 +90,21 @@ export default {
     removeContact(contact) {
       let index = this.contacts.indexOf(contact);
       this.contacts.splice(index, 1);
+
+      // update locale storage
+      if (Storage != undefined) {
+        localStorage.contacts = JSON.stringify(this.contacts);
+      }
     },
     updateContact(id) {
       this.contacts[id].name = this.name;
       this.contacts[id].email = this.email;
       this.contacts[id].phone = this.phone;
+
+      // update locale storage
+      if (Storage != undefined) {
+        localStorage.contacts = JSON.stringify(this.contacts);
+      }
 
       this.action = "list";
     }
