@@ -9,6 +9,7 @@ import Contacts from './components/Contacts.vue'
 import Music from './components/Music.vue'
 import Tree from './components/Tree.vue'
 import SysInfo from './components/SysInfo.vue'
+import Coin from './components/Coin.vue'
 
 const router = new VueRouter({
   routes: [
@@ -16,7 +17,8 @@ const router = new VueRouter({
     { path: '/contacts', component: Contacts },
     { path: '/music', component: Music },
     { path: '/tree', component: Tree },
-    { path: '/sysinfo', component: SysInfo }
+    { path: '/sysinfo', component: SysInfo },
+    { path: '/coin', component: Coin }
   ]
 })
 
