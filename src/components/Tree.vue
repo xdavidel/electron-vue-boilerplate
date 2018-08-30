@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="tree">
     <h1>Tree View</h1>
-    <div class="tree">
+    <div>
       <p>(You can double click on an item to turn it into a folder.)</p>
     <ul>
         <node class="node" :model="treeData"></node>    
@@ -48,7 +48,7 @@ export default {
 
 <style scoped>
 .tree {
-  text-align: start;
+  text-align: center;
   margin: 0 auto;
 }
 .node {

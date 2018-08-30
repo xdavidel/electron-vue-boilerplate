@@ -112,7 +112,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .contacts {
+  text-align: center;
+  margin: 0 auto;
 }
 </style>

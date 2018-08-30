@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="music">
       <h1>Music Player</h1>
       <button class="btn btn-default" v-on:click="fileOpen">
         <span class="icon icon-folder"></span>
@@ -38,7 +38,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .music {
+  text-align: center;
+  margin: 0 auto;
 }
 </style>
